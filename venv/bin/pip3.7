@@ -1,0 +1,19 @@
+#!/Users/zhupx/PycharmProjects/untitled2/venv/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'pip==19.0.3','console_scripts','pip3.7'
+__requires__ = 'pip==19.0.3'
+import re
+import sys
+from pkg_resources import load_entry_point
+
+import itchat, time
+
+itchat.auto_login(True)
+
+SINCERE_WISH = u'祝%s新年快乐！'
+
+friendList = itchat.get_friends(update=True)[1:]
+for friend in friendList:
+
+    print(SINCERE_WISH % (friend['DisplayName']
+        or friend['NickName']), friend['UserName'])
+    time.sleep(.5)
